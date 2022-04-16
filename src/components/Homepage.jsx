@@ -15,12 +15,20 @@ export default function Homepage() {
   const[data,setData]=useState([]);
 
             useEffect(()=>{
+             getData()
+            },[])
+            const getData=()=>{
               axios.get("http://localhost:8080/addcity").then((res)=>{
                 setData(res.data)
               }).catch((err)=>{
                 console.log(err.message)
               })
-            },[])
+            }
+          const deleteItem=(id)=>{
+                 axios.delete(`http://localhost:8080/addcity/${id}`).then((res)=>{
+                   getData();
+                 })
+          }
   return (
     
 
@@ -57,7 +65,9 @@ export default function Homepage() {
               <TableCell align="center">{row.cityName}</TableCell>
               <TableCell align="center">{row.population}</TableCell>
               <TableCell align="center"><Button variant='outlined'>Edit</Button></TableCell>
-              <TableCell align="center"><Button variant='outlined'>Delete</Button></TableCell>
+              <TableCell align="center"><Button variant='outlined' onClick={()=>{
+                deleteItem(row.id)
+              }}>Delete</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

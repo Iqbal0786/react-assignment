@@ -1,18 +1,6 @@
 {
   "addcity": [
     {
-      "cityName": "ghaziabad",
-      "population": "24444",
-      "country": "india",
-      "id": 1
-    },
-    {
-      "cityName": "Delhi",
-      "population": "500000",
-      "country": "india",
-      "id": 2
-    },
-    {
       "cityName": "Allahabad",
       "population": "500000",
       "country": "india",
@@ -29,18 +17,6 @@
       "population": "5000",
       "country": "America",
       "id": 5
-    },
-    {
-      "cityName": "Newyork",
-      "population": "40001",
-      "country": "London",
-      "id": 6
-    },
-    {
-      "cityName": "aasdf",
-      "population": "1213",
-      "country": "asdfasd",
-      "id": 7
     }
   ],
   "addCountry": []
