@@ -4,9 +4,11 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import axios from 'axios';
+import {useDispatch} from "react-redux"
+import { ADD_CITY } from '../Redux/AddCity/AddCityAction';
 
 export default function AddCity() {
-    
+    const dispatch= useDispatch();
   const [citydata,setCityData]=useState({
     cityName:"",
     population:"",
@@ -17,7 +19,7 @@ fetchData()
   },[])
   const fetchData=()=>{
      axios.get("http://localhost:8080/addcity").then((res)=>{
-       console.log(res.data)
+       dispatch(ADD_CITY(res.data))
      }).catch((err)=>{
        console.log(err.message)
      })
@@ -29,6 +31,7 @@ fetchData()
   const addData=()=>{
       axios.post("http://localhost:8080/addcity",citydata).then((res)=>{
         alert("success")
+        fetchData()
       }).catch((err)=>{
         console.log(err.message)
       })

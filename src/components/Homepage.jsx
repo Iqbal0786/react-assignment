@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,8 +8,19 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { AppBar, Box, Button, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+
 export default function Homepage() {
-  
+  const[data,setData]=useState([]);
+
+            useEffect(()=>{
+              axios.get("http://localhost:8080/addcity").then((res)=>{
+                setData(res.data)
+              }).catch((err)=>{
+                console.log(err.message)
+              })
+            },[])
   return (
     
 
@@ -34,17 +45,17 @@ export default function Homepage() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {[].map((row) => (
+          {data.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-               
+              {row.id}
               </TableCell>
-              <TableCell align="center"></TableCell>
-              <TableCell align="center"></TableCell>
-              <TableCell align="center"></TableCell>
+              <TableCell align="center">{row.country}</TableCell>
+              <TableCell align="center">{row.cityName}</TableCell>
+              <TableCell align="center">{row.population}</TableCell>
               <TableCell align="center"><Button variant='outlined'>Edit</Button></TableCell>
               <TableCell align="center"><Button variant='outlined'>Delete</Button></TableCell>
             </TableRow>
