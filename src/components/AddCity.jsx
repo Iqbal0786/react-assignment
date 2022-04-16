@@ -1,16 +1,27 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import axios from 'axios';
 
 export default function AddCity() {
+    
   const [citydata,setCityData]=useState({
     cityName:"",
     population:"",
     country:""
   })
+  useEffect(()=>{
+fetchData()
+  },[])
+  const fetchData=()=>{
+     axios.get("http://localhost:8080/addcity").then((res)=>{
+       console.log(res.data)
+     }).catch((err)=>{
+       console.log(err.message)
+     })
+  }
   const getCityData=(e)=>{
         let {id,value}=e.target;
         setCityData({...citydata,[id]:value})

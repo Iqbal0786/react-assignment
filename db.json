@@ -29,6 +29,12 @@
       "population": "5000",
       "country": "America",
       "id": 5
+    },
+    {
+      "cityName": "Newyork",
+      "population": "40001",
+      "country": "London",
+      "id": 6
     }
   ],
   "addCountry": []
