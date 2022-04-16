@@ -1,0 +1,35 @@
+{
+  "addcity": [
+    {
+      "cityName": "ghaziabad",
+      "population": "24444",
+      "country": "india",
+      "id": 1
+    },
+    {
+      "cityName": "Delhi",
+      "population": "500000",
+      "country": "india",
+      "id": 2
+    },
+    {
+      "cityName": "Allahabad",
+      "population": "500000",
+      "country": "india",
+      "id": 3
+    },
+    {
+      "cityName": "Noida",
+      "population": "5000",
+      "country": "india",
+      "id": 4
+    },
+    {
+      "cityName": "SanFranch",
+      "population": "5000",
+      "country": "America",
+      "id": 5
+    }
+  ],
+  "addCountry": []
+}
